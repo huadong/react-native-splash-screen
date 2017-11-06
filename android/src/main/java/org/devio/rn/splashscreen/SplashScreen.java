@@ -2,6 +2,7 @@ package org.devio.rn.splashscreen;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.view.View;
 
 import java.lang.ref.WeakReference;
 
