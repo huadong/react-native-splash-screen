@@ -31,6 +31,15 @@ public class SplashScreen {
                     mSplashDialog = new Dialog(activity, fullScreen ? R.style.SplashScreen_Fullscreen : R.style.SplashScreen_SplashTheme);
                     mSplashDialog.setContentView(R.layout.launch_screen);
                     mSplashDialog.setCancelable(false);
+                    if(fullScreen) {
+                        mSplashDialog.getWindow().getDecorView().setSystemUiVisibility(
+                                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
+                                        | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
+                                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+                    }
 
                     if (!mSplashDialog.isShowing()) {
                         mSplashDialog.show();
