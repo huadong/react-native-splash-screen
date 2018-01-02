@@ -2,6 +2,7 @@ package org.devio.rn.splashscreen;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.util.Log;
 import android.view.View;
 
 import java.lang.ref.WeakReference;
@@ -22,6 +23,8 @@ public class SplashScreen {
      * 打开启动屏
      */
     public static void show(final Activity activity, final boolean fullScreen) {
+        Log.d("SplashScreen", "try to show splash screen: "
+                + (activity == null ? "activity is null" : activity.getComponentName()));
         if (activity == null) return;
         mActivity = new WeakReference<Activity>(activity);
         activity.runOnUiThread(new Runnable() {
@@ -61,6 +64,8 @@ public class SplashScreen {
      * 关闭启动屏
      */
     public static void hide(Activity activity) {
+        Log.d("SplashScreen", "try to hide splash screen: "
+                + (activity == null ? "activity is null" : activity.getComponentName()));
         if (activity == null) {
             if (mActivity == null) {
                 return;
